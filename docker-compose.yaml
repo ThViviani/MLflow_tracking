@@ -83,6 +83,7 @@ services:
       --host 0.0.0.0
       --serve-artifacts
       --artifacts-destination s3://${MLFLOW_BUCKET_NAME}/artifacts
+      --gunicorn-opts "--timeout=600"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/"]
       interval: 30s
